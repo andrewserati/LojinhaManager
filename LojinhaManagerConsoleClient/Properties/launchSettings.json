@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "LojinhaManagerConsoleClient": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
