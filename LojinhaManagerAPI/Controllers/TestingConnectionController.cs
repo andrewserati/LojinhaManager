@@ -11,7 +11,7 @@ namespace LojinhaManagerAPI.Controllers
         [HttpGet]
         public CustomMessage Get() 
         {
-            return new CustomMessage("A API está funcionando normalmente!");
+            return new CustomMessage("The API is working normally!");
         }
     }
 }
