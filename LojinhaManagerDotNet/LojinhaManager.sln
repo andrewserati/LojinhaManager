@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojinhaManagerAPI", "LojinhaManagerAPI\LojinhaManagerAPI.csproj", "{709342B6-2F97-41BC-A761-4B461FE3B725}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LojinhaManagerAPI", "LojinhaManagerAPI\LojinhaManagerAPI.csproj", "{709342B6-2F97-41BC-A761-4B461FE3B725}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LojinhaManagerORM", "LojinhaManagerORM\LojinhaManagerORM.csproj", "{E211597F-D44A-49CB-88EC-EF5E8541FAFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojinhaManagerDomain", "LojinhaManagerDomain\LojinhaManagerDomain.csproj", "{D8B6A2A5-583F-4AB8-A8A4-7AD6D6AD0C51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{709342B6-2F97-41BC-A761-4B461FE3B725}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{709342B6-2F97-41BC-A761-4B461FE3B725}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{709342B6-2F97-41BC-A761-4B461FE3B725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E211597F-D44A-49CB-88EC-EF5E8541FAFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E211597F-D44A-49CB-88EC-EF5E8541FAFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E211597F-D44A-49CB-88EC-EF5E8541FAFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E211597F-D44A-49CB-88EC-EF5E8541FAFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8B6A2A5-583F-4AB8-A8A4-7AD6D6AD0C51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8B6A2A5-583F-4AB8-A8A4-7AD6D6AD0C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8B6A2A5-583F-4AB8-A8A4-7AD6D6AD0C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8B6A2A5-583F-4AB8-A8A4-7AD6D6AD0C51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

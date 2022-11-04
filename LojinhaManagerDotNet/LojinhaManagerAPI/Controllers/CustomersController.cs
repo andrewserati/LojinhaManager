@@ -1,14 +1,13 @@
-﻿using LojinhaManagerAPI.Models;
-using Microsoft.AspNetCore.Http;
+﻿using LojinhaManagerDomain.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LojinhaManagerAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerController : ControllerBase
+    public class CustomersController : ControllerBase
     {
-        public CustomerController() { }
+        public CustomersController() { }
 
         [HttpGet]
         public IEnumerable<Customer> Get()
