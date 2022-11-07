@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LojinhaManagerORM.Migrations
 {
     [DbContext(typeof(LojinhaManagerPostgresContext))]
-    [Migration("20221104025726_teste")]
-    partial class teste
+    [Migration("20221105202803_initial_migration")]
+    partial class initial_migration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

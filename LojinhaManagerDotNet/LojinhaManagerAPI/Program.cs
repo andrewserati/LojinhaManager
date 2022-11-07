@@ -1,4 +1,6 @@
+using LojinhaManagerORM.Contexts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +16,17 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
+builder.Services.AddEntityFrameworkNpgsql().AddDbContext<LojinhaManagerPostgresContext>();
+
+builder.Services.AddAutoMapper(cfg => cfg.AddMaps(AppDomain.CurrentDomain.GetAssemblies()));
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<LojinhaManagerPostgresContext>();
+    db.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
