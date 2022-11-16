@@ -25,7 +25,14 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<LojinhaManagerPostgresContext>();
-    db.Database.Migrate();
+    try 
+    {
+        db.Database.Migrate();
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine(e.Message);
+    }
 }
 
 // Configure the HTTP request pipeline.
