@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lojinha_manager/app/models/enums/route_enum.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage> {
             label: const Text('Sair'),
             icon: const Icon(Icons.logout),
             style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-            onPressed: () => {Navigator.pushNamed(context, 'login')},
+            onPressed: () => {Navigator.pushNamed(context, RouteEnum.login.toString())},
           )
         ],
       ),
