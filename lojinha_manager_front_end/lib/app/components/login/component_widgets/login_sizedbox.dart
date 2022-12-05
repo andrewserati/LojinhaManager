@@ -14,9 +14,9 @@ class LoginSizedBox extends StatelessWidget {
       height: 400,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Logo(),
-          VerticalSpace(size: 20),
+        children: [
+          const Logo(),
+          const VerticalSpace(size: 20),
           LoginForm(),
         ],
       ),

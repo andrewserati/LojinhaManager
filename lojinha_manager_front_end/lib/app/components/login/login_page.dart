@@ -5,9 +5,7 @@ import '../../widgets/shared/util.dart';
 import 'component_widgets/login_sizedbox.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({
-    Key? key
-  }) : super(key: key);
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +13,13 @@ class LoginPage extends StatelessWidget {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: loadLoginPageBackground(),
+        decoration: loginPageBackground(),
         child: const Center(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 50),
-            child: LoginSizedBox(),
+            child: SingleChildScrollView(
+              child: LoginSizedBox(),
+            ),
           ),
         ),
       ),

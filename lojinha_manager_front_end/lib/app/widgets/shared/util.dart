@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-BoxDecoration loadLoginPageBackground() {
+BoxDecoration loginPageBackground() {
   return const BoxDecoration(
     image: DecorationImage(
       image: AssetImage("assets/images/783477.png"),

@@ -8,26 +8,17 @@ import 'login_button.dart';
 import 'password_textformfield.dart';
 import 'username_textformfield.dart';
 
-class LoginForm extends StatefulWidget {
-  const LoginForm({super.key});
-
-  @override
-  State<LoginForm> createState() => _LoginFormState();
-}
-
-class _LoginFormState extends State<LoginForm> {
+class LoginForm extends StatelessWidget {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  FocusNode usernameFocus = FocusNode();
-  FocusNode passwordFocus = FocusNode();
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final FocusNode usernameFocus = FocusNode();
+  final FocusNode passwordFocus = FocusNode();
+  final Credential credential = Credential();
 
-  @override
-  void dispose() {
-    _usernameController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
+  LoginForm({super.key});
+
+  void _captureUsernameFromField(String value) => credential.username = value;
+
+  void _capturePasswordFromField(String value) => credential.password = value;
 
   @override
   Widget build(BuildContext context) {
@@ -38,18 +29,16 @@ class _LoginFormState extends State<LoginForm> {
           UsernameTextFormField(
             thisNode: usernameFocus,
             nextNode: passwordFocus,
-            controller: _usernameController,
+            capturer: _captureUsernameFromField,
           ),
           PasswordTextFormField(
             thisNode: passwordFocus,
-            controller: _passwordController,
+            capturer: _capturePasswordFromField,
           ),
           const VerticalSpace(size: 40),
           LoginButton(
             formKey: _formKey,
-            credential: Credential(
-                username: _usernameController.value.text,
-                password: _passwordController.value.text),
+            credential: credential,
             loginController: Injector.resolve<LoginController>(),
           ),
         ],

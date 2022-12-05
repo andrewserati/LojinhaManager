@@ -10,18 +10,23 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Lojinha Manager',
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-        brightness: Brightness.dark,
-      ),
-      initialRoute: RouteEnum.login.toString(),
-      routes: {
-        RouteEnum.login.toString(): (context) => const LoginPage(),
-        RouteEnum.home.toString(): (context) => const HomePage(),
-        RouteEnum.customers.toString(): (context) => const CustomerPage()
+    return GestureDetector(
+      onTap: () {
+        FocusManager.instance.primaryFocus?.unfocus();
       },
+      child: MaterialApp(
+        title: 'Lojinha Manager',
+        theme: ThemeData(
+          primarySwatch: Colors.purple,
+          brightness: Brightness.dark,
+        ),
+        initialRoute: RouteEnum.login.toString(),
+        routes: {
+          RouteEnum.login.toString(): (context) => const LoginPage(),
+          RouteEnum.home.toString(): (context) => const HomePage(),
+          RouteEnum.customers.toString(): (context) => const CustomerPage()
+        },
+      ),
     );
   }
 }

@@ -20,7 +20,8 @@ class _HomePageState extends State<HomePage> {
             label: const Text('Sair'),
             icon: const Icon(Icons.logout),
             style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-            onPressed: () => {Navigator.pushNamed(context, RouteEnum.login.toString())},
+            onPressed: () =>
+                {Navigator.pushNamed(context, RouteEnum.login.toString())},
           )
         ],
       ),
@@ -30,9 +31,7 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               leading: const Icon(Icons.groups),
               title: const Text('Área de Clientes'),
-              onTap: () => { 
-                Navigator.pushNamed(context, 'customers')
-              },
+              onTap: () => {Navigator.pushNamed(context, 'customers')},
             ),
             const ListTile(
                 enabled: false,

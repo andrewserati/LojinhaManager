@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -7,13 +6,13 @@ import '../../../widgets/shared/util.dart';
 class UsernameTextFormField extends StatefulWidget {
   final FocusNode thisNode;
   final FocusNode nextNode;
-  final TextEditingController controller;
+  final void Function(String) capturer;
 
   const UsernameTextFormField({
     Key? key,
     required this.thisNode,
     required this.nextNode,
-    required this.controller,
+    required this.capturer,
   }) : super(key: key);
 
   @override
@@ -21,6 +20,8 @@ class UsernameTextFormField extends StatefulWidget {
 }
 
 class _UsernameTextFormFieldState extends State<UsernameTextFormField> {
+  TextEditingController controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -37,7 +38,10 @@ class _UsernameTextFormFieldState extends State<UsernameTextFormField> {
         widget.thisNode.unfocus(),
         FocusScope.of(context).requestFocus(widget.nextNode),
       },
-      controller: widget.controller,
+      onChanged: (value) {
+        widget.capturer(controller.value.text);
+      },
+      controller: controller,
     );
   }
 }
