@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:lojinha_manager/app/models/credential.dart';
 
-import '../../../models/enums/route_enum.dart';
+import '../../../models/lm_routes.dart';
 import '../../../models/interfaces/i_login_controller.dart';
 import '../../../widgets/shared/horizontal_space.dart';
 import 'login_snackbar.dart';
@@ -26,7 +26,7 @@ class LoginButton extends StatelessWidget {
         if (value) {
           Navigator.pushReplacementNamed(
             context,
-            RouteEnum.home.toString(),
+            LMRoutes.home,
           );
         } else {
           ScaffoldMessenger.of(context).showSnackBar(

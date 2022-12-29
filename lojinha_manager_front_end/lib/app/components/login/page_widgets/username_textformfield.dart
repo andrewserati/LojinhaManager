@@ -25,7 +25,12 @@ class _UsernameTextFormFieldState extends State<UsernameTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      decoration: const InputDecoration(labelText: 'Username'),
+      decoration: const InputDecoration(
+        labelText: 'Username',
+      ),
+      style: const TextStyle(
+        color: Colors.white,
+      ),
       keyboardType: TextInputType.name,
       inputFormatters: [
         LengthLimitingTextInputFormatter(50),

@@ -1,7 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:kiwi/kiwi.dart';
-import 'package:lojinha_manager/app/components/login/component_widgets/login_button.dart';
+import 'package:lojinha_manager/app/components/demand_create/demand_create_page.dart';
 import 'package:lojinha_manager/app/components/login/login_controller.dart';
+
+import 'app/components/demand_create/demand_create_controller.dart';
+import 'app/components/register_new_customer/register_new_customer_controller.dart';
+import 'app/components/register_new_customer/register_new_customer_page.dart';
 
 part 'injector.g.dart';
 
@@ -26,6 +29,10 @@ abstract class Injector {
   void _configureInstances() {}
 
   @Register.factory(LoginController)
+  @Register.factory(DemandCreatePage)
+  @Register.factory(DemandCreateController)
+  @Register.factory(RegisterNewCustomerPage)
+  @Register.factory(RegisterNewCustomerController)
   // ignore: unused_element
   void _configureFactories();
 }

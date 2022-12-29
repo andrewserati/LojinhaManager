@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 import '../../widgets/shared/util.dart';
-import 'component_widgets/login_sizedbox.dart';
+import 'page_widgets/login_sizedbox.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class LoginPage extends StatelessWidget {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: loginPageBackground(),
+        decoration: loginPageBackground,
         child: const Center(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 50),
