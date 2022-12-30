@@ -12,10 +12,10 @@ class DemandCreateController implements IDemandCreateController {
   @override
   Future<Iterable<Customer>> getCustomersToAutocomplete(String query) async {
     return [
-      Customer('JOÃO'),
-      Customer('MARQUIN'),
-      Customer('ANDREW'),
-      Customer('MARIA'),
-    ].where((x) => x.nome.contains(query.toUpperCase())).toList();
+      Customer(firstName: 'JOÃO', lastName: ''),
+      Customer(firstName: 'MARQUIN', lastName: ''),
+      Customer(firstName: 'ANDREW', lastName: ''),
+      Customer(firstName: 'MARIA', lastName: ''),
+    ].where((x) => x.firstName.contains(query.toUpperCase())).toList();
   }
 }

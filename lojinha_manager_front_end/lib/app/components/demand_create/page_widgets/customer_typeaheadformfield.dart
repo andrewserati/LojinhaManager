@@ -34,11 +34,11 @@ class _CustomerTypeAheadFormFieldState
           widget.demandCreateController.getCustomersToAutocomplete,
       itemBuilder: (context, Customer? suggestion) {
         return ListTile(
-          title: Text(suggestion!.nome),
+          title: Text(suggestion!.firstName),
         );
       },
       onSuggestionSelected: (suggestion) {
-        customerTEC.text = suggestion?.nome ?? '';
+        customerTEC.text = suggestion?.firstName ?? '';
       },
       noItemsFoundBuilder: (_) {
         return const ListTile(

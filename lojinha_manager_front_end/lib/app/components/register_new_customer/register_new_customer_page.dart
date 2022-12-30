@@ -3,6 +3,8 @@ import 'package:lojinha_manager/app/models/interfaces/i_register_new_customer_co
 import 'package:lojinha_manager/app/widgets/shared/util.dart';
 import 'package:lojinha_manager/app/widgets/shared/vertical_space.dart';
 
+import '../../widgets/shared/theme.dart';
+
 class RegisterNewCustomerPage extends StatefulWidget {
   final IRegisterNewCustomerController controller;
 
@@ -15,8 +17,15 @@ class RegisterNewCustomerPage extends StatefulWidget {
 
 class _RegisterNewCustomerPageState extends State<RegisterNewCustomerPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
   final FocusNode _firstNameFN = FocusNode();
+  final _formData = <String, Object>{};
+  bool _isRequesting = false;
+
+  void isRequesting(bool value) {
+    setState(() {
+      _isRequesting = value;
+    });
+  }
 
   @override
   void dispose() {
@@ -41,38 +50,42 @@ class _RegisterNewCustomerPageState extends State<RegisterNewCustomerPage> {
                 TextFormField(
                   autofocus: true,
                   decoration: const InputDecoration(
-                    labelText: 'First name',
+                    labelText: 'First name *',
                   ),
                   enableSuggestions: false,
                   focusNode: _firstNameFN,
                   maxLength: 30,
+                  onSaved: (newValue) =>
+                      _formData['firstName'] = newValue ?? '',
                   textInputAction: TextInputAction.next,
                   validator: (value) => isRequiredField(
                     value,
-                    'First name is required!',
+                    'First name is required',
                   ),
                 ),
                 const VerticalSpace(size: 8),
                 TextFormField(
                   decoration: const InputDecoration(
-                    labelText: 'Middle name (optional)',
+                    labelText: 'Middle name',
                   ),
                   enableSuggestions: false,
                   maxLength: 50,
+                  onSaved: (newValue) =>
+                      _formData['middleName'] = newValue ?? '',
                   textInputAction: TextInputAction.next,
-                  //validator: () {},
                 ),
                 const VerticalSpace(size: 8),
                 TextFormField(
                   decoration: const InputDecoration(
-                    labelText: 'Last name',
+                    labelText: 'Last name *',
                   ),
                   enableSuggestions: false,
                   maxLength: 30,
+                  onSaved: (newValue) => _formData['lastName'] = newValue ?? '',
                   textInputAction: TextInputAction.next,
                   validator: (value) => isRequiredField(
                     value,
-                    'Last name is required!',
+                    'Last name is required',
                   ),
                 ),
                 const VerticalSpace(size: 8),
@@ -83,6 +96,8 @@ class _RegisterNewCustomerPageState extends State<RegisterNewCustomerPage> {
                   enableSuggestions: false,
                   keyboardType: TextInputType.phone,
                   maxLength: 11,
+                  onSaved: (newValue) =>
+                      _formData['phoneNumber'] = newValue ?? '',
                   textInputAction: TextInputAction.next,
                 ),
                 const VerticalSpace(size: 8),
@@ -93,6 +108,7 @@ class _RegisterNewCustomerPageState extends State<RegisterNewCustomerPage> {
                   enableSuggestions: false,
                   keyboardType: TextInputType.emailAddress,
                   maxLength: 100,
+                  onSaved: (newValue) => _formData['email'] = newValue ?? '',
                   textInputAction: TextInputAction.done,
                 ),
               ],
@@ -101,8 +117,11 @@ class _RegisterNewCustomerPageState extends State<RegisterNewCustomerPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => widget.controller.submitForm(_formKey),
-        child: const Icon(Icons.save),
+        onPressed: () => widget.controller
+            .submitForm(_formKey, _formData, context, isRequesting),
+        child: !_isRequesting
+            ? const Icon(Icons.save)
+            : const CircularProgressIndicator(color: primaryForegroundColorLM),
       ),
     );
   }

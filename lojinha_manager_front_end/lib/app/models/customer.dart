@@ -1,7 +1,20 @@
 class Customer {
-  final String nome;
+  final String firstName;
+  String? middleName;
+  final String lastName;
+  String? phoneNumber;
+  String? email;
 
-  Customer(
-    this.nome,
-  );
+  Customer({
+    required this.firstName,
+    this.middleName,
+    required this.lastName,
+    this.phoneNumber,
+    this.email,
+  });
+
+  @override
+  String toString() {
+    return '$firstName, $lastName';
+  }
 }
